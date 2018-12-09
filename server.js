@@ -3,7 +3,7 @@ var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
 var app = express();
 var db = require("./models");
-
+var PORT = 3000;
 
 // Configure middleware
 
@@ -28,7 +28,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+// require("./routes/htmlRoutes")(app);
 
 app.listen(PORT, function() {
     console.log("App running on port " + PORT + "!");
