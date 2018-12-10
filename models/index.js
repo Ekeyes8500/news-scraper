@@ -1,4 +1,4 @@
 module.exports = {
-    Article: require("./Article"),
+    EventInfo: require("./Event"),
     Comment: require("./Comment")
 }

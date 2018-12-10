@@ -27,20 +27,20 @@ module.exports = function(app){
 }
 
 //function used to determine if article is already stored in db
-function repeatCheck(newArticle){
+function repeatCheck(newEvent){
     var isRepeat = false;
 
     //goes through all stored articles and checks to see if the title matches
-    db.Article.find({}).then(function(dbArticle){
-        for (var i = 0; i < dbArticle.length; i++){
-            if (dbArticle[i].title == newArticle.title){
+    db.EventInfo.find({}).then(function(dbEvent){
+        for (var i = 0; i < dbEvent.length; i++){
+            if (dbEvent[i].name == newEvent.name){
                 isRepeat = true;
             }
         }
         if (isRepeat === true){
-            console.log("REPEAT ARTICLE, NOT ADDING TO DB");
+            console.log("REPEAT EVENT, NOT ADDING TO DB");
         } else if (isRepeat === false){
-            db.Article.create(newArticle)
+            db.EventInfo.create(newEvent)
             .catch(function(err){
                 return res.json(err);
             })
