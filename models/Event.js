@@ -6,15 +6,15 @@ var Schema = mongoose.Schema;
 
 var EventSchema = new Schema({
 
-    name: {
-        type: String,
+    eventDate: {
+        type: Number,
         required: true
     },
     venue:{
         type: String,
         required: true
     },
-    date:{
+    artist:{
         type: String,
         required: true
     },
