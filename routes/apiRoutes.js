@@ -38,7 +38,7 @@ function repeatCheck(newArticle){
             }
         }
         if (isRepeat === true){
-            console.log("is a repeat, not adding to db");
+            console.log("REPEAT ARTICLE, NOT ADDING TO DB");
         } else if (isRepeat === false){
             db.Article.create(newArticle)
             .catch(function(err){
