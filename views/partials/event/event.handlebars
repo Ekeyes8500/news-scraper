@@ -1,0 +1,11 @@
+
+<div class="col-8">
+    {{#each events}}
+        <div class="event-card card mx-auto mt-3 text-white bg-dark">
+            <h5 class="card-header event-header">{{eventDate}}</h5>
+            <h5 class="card-body">{{artist}}</h5>
+            <span class="card-body">Venue: {{venue}}</span>
+            <span class="card-body">Comments: {{comments.length}}</span>
+        </div>
+    {{/each}}
+</div>

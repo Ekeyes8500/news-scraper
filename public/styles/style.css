@@ -1,0 +1,8 @@
+body {
+    background-image:url("/images/philadelphia-night.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.event-header{
+    background-color:black
+}

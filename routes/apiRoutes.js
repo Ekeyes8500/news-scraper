@@ -54,7 +54,6 @@ module.exports = function(app){
             }
         })
         .then(function(dbEvent){
-            deletePast(dbEvent)
             res.json(dbEvent);
         })
         .catch(function(err){
