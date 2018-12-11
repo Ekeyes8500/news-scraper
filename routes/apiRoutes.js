@@ -46,6 +46,18 @@ module.exports = function(app){
         res.json("scrape completed")
     });
 
+    //api route for getting event comments
+    app.get("/api/events/:id", function(req, res){
+        db.EventInfo.findOne({ _id: req.params.id })
+        .populate("comments")
+        .then(function(event){
+            res.json(event);
+        })
+        .catch(function(err){
+            res.json(err);
+        })
+    });
+
     //route to get event information 
     app.get("/api/events", function(req, res){
         db.EventInfo.find({},[],{

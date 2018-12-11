@@ -14,19 +14,18 @@ module.exports = function (app) {
             }
             for (var i = 0; i < dbEvent.length; i++){
                 var thisEvent = dbEvent[i];
-                console.log(thisEvent);
                 var newDate = moment.unix(thisEvent.eventDate).format("MMMM DD");
                 var newObject = {
+                    id: thisEvent._id,
                     venue: thisEvent.venue,
                     artist: thisEvent.artist,
                     eventDate: newDate,
                     comments: thisEvent.comments
                 }
+                console.log(newObject);
                 eventObj.events.push(newObject);
             }
-            if (dbEvent.length === eventObj.events.length){
-                res.render("index", eventObj);
-            }
+            res.render("index", eventObj);
             
         })
         .catch(function(err){
