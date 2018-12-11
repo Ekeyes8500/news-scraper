@@ -1,5 +1,5 @@
 
-<div class="col-md-5">
+<div class="col-md-6">
     {{#each events}}
         <div class="event-card card mx-auto mt-3 text-white bg-dark" data-id={{id}}>
             <h5 class="card-header event-header">{{eventDate}}</h5>
@@ -7,7 +7,7 @@
             <span class="card-body">Venue: {{venue}}</span>
             <div class="comment-div"></div>
             <a href="http://lmgtfy.com/?q={{artist}}+{{venue}}" class="badge badge-light">Search for tickets!</a>
-            <button type="button" class="btn btn-secondary" data-state="closed" data-id={{id}}>Comments: {{comments.length}}</button>
+            <button type="button" class="btn btn-secondary comment-btn" data-state="closed" data-id={{id}}>Comments: {{comments.length}}</button>
         </div>
     {{/each}}
 </div>

@@ -58,6 +58,21 @@ module.exports = function(app){
         })
     });
 
+    app.post("/api/events/:id", function(req, res){
+        db.Comment.create(req.body)
+        .then(function(dbComment){
+            console.log(dbComment._id)
+            return db.EventInfo.findOneAndUpdate({ _id: req.params.id }, {$push: { comments: dbComment._id }}, {new: true})
+        })
+        .then(function(dbEventInfo){
+            console.log(dbEventInfo);
+            res.json(dbEventInfo)
+        })
+        .catch(function(err){
+            res.json(err);
+        })
+    })
+
     //route to get event information 
     app.get("/api/events", function(req, res){
         db.EventInfo.find({},[],{

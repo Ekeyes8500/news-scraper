@@ -22,7 +22,6 @@ module.exports = function (app) {
                     eventDate: newDate,
                     comments: thisEvent.comments
                 }
-                console.log(newObject);
                 eventObj.events.push(newObject);
             }
             res.render("index", eventObj);
