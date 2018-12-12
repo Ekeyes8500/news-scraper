@@ -18,6 +18,18 @@ var venueArray = [
 
 module.exports = function(app){
 
+    //api route to delete old event entries
+    app.get("/api/delete", function (req, res){
+        db.EventInfo.find({})
+        .then(function(dbEvent){
+            deletePast(dbEvent);
+            res.json("Deletes complete")
+        })
+        .catch(function(err){
+            res.json(err)
+        })
+    })
+
     //api route used to scrape mapchannels website
     app.get("/api/scrape", function(req, res) {
 
@@ -58,6 +70,7 @@ module.exports = function(app){
         })
     });
 
+    //api route to post comments
     app.post("/api/events/:id", function(req, res){
         db.Comment.create(req.body)
         .then(function(dbComment){
@@ -115,10 +128,19 @@ function repeatCheck(newEvent){
 //function to delete past events from database
 function deletePast(eventArray){
     var currentTime = parseInt(moment().unix());
+    console.log("CURRENT TIME" + currentTime);
     for (var i = 0; eventArray.length; i++){
         var eventTime = parseInt(eventArray[i].eventDate);
         if (currentTime > eventTime){
-            db.EventInfo.deleteOne({_id:eventArray[i]._id})
+            var deleteId = eventArray[i]._id;
+            console.log("delete me: " + deleteId)
+            db.EventInfo.findOneAndRemove({_id: deleteId})
+            .then(function(deleted){
+                console.log(deleted);
+            })
+            .catch(function(err){
+                console.log(err);
+            })
         }
     }
     return
