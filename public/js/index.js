@@ -122,15 +122,15 @@ $(document).on("click", ".btn-success", function(){
 
 //event hanlder for when clean and scrape button is clicked
 $(document).on("click", "#scraper", function(){
-    //first, a call to the delete api
+    //first, a call to scrape new events
     $.ajax({
         method: "GET",
-        url: "/api/delete"
+        url: "/api/scrape"
     }).then(function(){
         //after deletion of old events is completed, update event listings
         $.ajax({
             method: "GET",
-            url: "/api/scrape"
+            url: "/api/delete"
         }).then(function(){
             location.reload();
         })
