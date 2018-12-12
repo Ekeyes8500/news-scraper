@@ -134,7 +134,7 @@ function deletePast(eventArray){
         if (currentTime > eventTime){
             var deleteId = eventArray[i]._id;
             console.log("delete me: " + deleteId)
-            db.EventInfo.findOneAndRemove({_id: deleteId})
+            db.EventInfo.findOneAndDelete({_id: deleteId})
             .then(function(deleted){
                 console.log(deleted);
             })
