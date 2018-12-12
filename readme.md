@@ -1,6 +1,7 @@
 # The Philly Music Scraper
 
-![Imgur](https://i.imgur.com/CME6r6c.mp4)
+![Giphy](https://media.giphy.com/media/5towopWXHQxu9PBdOG/giphy.gif)
+
 # Introduction
 Welcome to the Philly Music Scraper! This is a web scraper that pulls from a specially curated list of Philadelphia venues to find some of the best underground/indie acts that come through the city of Philadelphia! Users are welcome to add comments on any event they see fit. Traditionally, updates to this system would come from a "cron"-type operation, but Heroku proves unreliable for this, so press the button below to clean out old events and get new ones!
 
